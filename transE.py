@@ -76,7 +76,7 @@ class TransEModel(object):
 
 
 def main(_):
-	time.time()
+	start_time = time.time()
 	config = Config()
 	if (config.testFlag):
 		test_lib.init()
@@ -173,6 +173,7 @@ def main(_):
 					if (times % 50 == 0):
 						test_lib.test()
 				test_lib.test()
-
+	end_time = time.time()
+	print("The whole time of transE",end_time-start_time)
 if __name__ == "__main__":  #当.py文件被直接运行时
 	tf.app.run()

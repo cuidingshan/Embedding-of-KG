@@ -92,6 +92,7 @@ class TransDModel(object):
 			self.loss = tf.reduce_sum(tf.maximum(pos - neg + margin, 0))
 
 def main(_):
+	start_time = time.time()
 	config = Config()
 	if (config.testFlag):
 		test_lib.init()
@@ -188,7 +189,8 @@ def main(_):
 					if (times % 50 == 0):
 						test_lib.test()
 				test_lib.test()
-
+	end_time = time.time()
+	print("The whole time of transD", end_time - start_time)
 if __name__ == "__main__":
 	tf.app.run()
 
