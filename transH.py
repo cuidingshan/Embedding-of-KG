@@ -7,8 +7,14 @@ import datetime
 import ctypes
 
 ll = ctypes.cdll.LoadLibrary   
-lib = ll("./init.so")
-test_lib = ll("./test.so")
+platform = "Linux"
+ll = ctypes.cdll.LoadLibrary
+if platform == "Window":
+	lib = ll("C:/Users/dell/source/repos/Dll4/x64/Release/Dll4")
+	test_lib = ll("C:/Users/dell/source/repos/trans/x64/Release/trans")
+else:
+	lib = ll("./init.so")
+	test_lib = ll("./test.so")
 
 class Config(object):
 
@@ -155,7 +161,7 @@ def main(_):
 			test_lib.testHead.argtypes = [ctypes.c_void_p]
 			test_lib.testTail.argtypes = [ctypes.c_void_p]
 
-			print "hx"
+			print("hx")
 
 			if not config.testFlag:
 				for times in range(config.trainTimes):
@@ -164,8 +170,8 @@ def main(_):
 						lib.getBatch(ph_addr, pt_addr, pr_addr, nh_addr, nt_addr, nr_addr, config.batch_size)
 						res += train_step(ph, pt, pr, nh, nt, nr)
 						current_step = tf.train.global_step(sess, global_step)
-					print times
-					print res
+					print(times)
+					print(res)
 				saver.save(sess, 'model.vec')
 			else:
 				total = test_lib.getTestTotal()
@@ -177,7 +183,7 @@ def main(_):
 					test_lib.getTailBatch(ph_addr, pt_addr, pr_addr)
 					res = test_step(ph, pt, pr)
 					test_lib.testTail(res.__array_interface__['data'][0])
-					print times
+					print(times)
 					if (times % 50 == 0):
 						test_lib.test()
 				test_lib.test()

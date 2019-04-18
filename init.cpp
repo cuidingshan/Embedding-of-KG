@@ -14,9 +14,10 @@ int bernFlag = 0;
 extern "C"
 void setInPath(char *path) {
     int len = strlen(path);
-    inPath = "";
-    for (int i = 0; i < len; i++)
-        inPath = inPath + path[i];
+    inPath = "./data/FB15K/";
+//    for (int i = 0; i < len; i++)
+//        inPath = inPath + path[i];
+
     printf("Input Files Path : %s\n", inPath.c_str());
 }
 

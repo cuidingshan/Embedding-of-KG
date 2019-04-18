@@ -223,7 +223,7 @@ void getClassRes(float *con, int *flag) {
     sort(res, res + tripleclassTotal, classcmp());
     float posS = 0;
     float negS = 0;
-    float mx;
+    float mx = 0;
     for (int i = 0; i < tripleclassTotal; i++) {
         if (res[i].flag == 1) posS++; else negS++;
         float pre = (posS + negTot - negS)/(negTot+posTot);
