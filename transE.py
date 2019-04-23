@@ -6,7 +6,7 @@ import time
 import datetime
 import ctypes
 
-platform = "Windows"
+platform = "Linux"
 ll = ctypes.cdll.LoadLibrary
 if platform == "Windows":
 	lib = ll("C:/Users/dell/source/repos/Dll4/x64/Release/Dll4")
