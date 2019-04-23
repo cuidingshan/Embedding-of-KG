@@ -6,9 +6,9 @@ import time
 import datetime
 import ctypes
 
-platform = "Linux"
+platform = "Windows"
 ll = ctypes.cdll.LoadLibrary
-if platform == "Window":
+if platform == "Windows":
 	lib = ll("C:/Users/dell/source/repos/Dll4/x64/Release/Dll4")
 	test_lib = ll("C:/Users/dell/source/repos/trans/x64/Release/trans")
 else:
@@ -19,13 +19,12 @@ print(lib)
 class Config(object):
 
 	def __init__(self):
-		getattr(lib, 'setInPath')("./data/FB15K/")
+		lib.setInPath("./data/FB15K/", len("./data/FB15K/"))
 		test_lib.setInPath("./data/FB15K/")
 		lib.setBernFlag(0)
 		self.learning_rate = 0.001
 		self.testFlag = False
 		self.loadFromData = False
-
 		self.L1_flag = True
 		self.hidden_size = 100
 		self.nbatches = 100

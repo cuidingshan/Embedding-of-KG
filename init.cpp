@@ -116,6 +116,7 @@ void init() {
 	}
 	rigHead[trainHead[tripleTotal - 1].h] = tripleTotal - 1;
 	rigTail[trainTail[tripleTotal - 1].t] = tripleTotal - 1;
+	 printf("leftTail : %d; rightTail:%d\n", lefTail[0].t,rigHead[0],t);
 
 	left_mean = (float *)calloc(relationTotal,sizeof(float));
 	right_mean = (float *)calloc(relationTotal,sizeof(float));

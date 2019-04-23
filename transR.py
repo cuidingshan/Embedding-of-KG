@@ -19,7 +19,7 @@ else:
 class Config(object):
 
 	def __init__(self):
-		lib.setInPath("./data/FB15K/")
+		lib.setInPath("./data/FB15K/", len("./data/FB15K/"))
 		test_lib.setInPath("./data/FB15K/")
 		lib.setBernFlag(0)
 		self.learning_rate = 0.0001
