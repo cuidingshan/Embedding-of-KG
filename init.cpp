@@ -104,10 +104,13 @@ void init() {
 	rigTail = (int *)calloc(entityTotal, sizeof(int));
 	memset(rigHead, -1, sizeof(rigHead));
 	memset(rigTail, -1, sizeof(rigTail));
+	printf("init: leftTail : %d; rightTail:%d\n", lefTail[0], rigHead[0]);
 	for (int i = 1; i < tripleTotal; i++) {
 		if (trainTail[i].t != trainTail[i - 1].t) {
 			rigTail[trainTail[i - 1].t] = i - 1;
 			lefTail[trainTail[i].t] = i;
+			if(i==1){
+			printf("first: leftTail : %d; rightTail:%d\n", lefTail[0], rigHead[0]);}
 		}
 		if (trainHead[i].h != trainHead[i - 1].h) {
 			rigHead[trainHead[i - 1].h] = i - 1;
